@@ -75,7 +75,7 @@ ax.set_ylabel('$E_0$')
 #ax.scatter(gs, es[-1]-es_, marker='+', label='D=2')
 #ax.scatter(gs, np.array(exact_es)[-1], marker='o', label='analytical result')
 ax.legend()
-#plt.savefig('error_vs_p.pdf', bbox_inches='tight')
+#plt.savefig('figures/error_vs_p.pdf', bbox_inches='tight')
 #plt.title('D=2 Ising ground state energy', loc='right')
 
 
@@ -94,6 +94,6 @@ D2_gse = -1.269909412573
 ax.axhline(D2_gse-exact_gses[-1], linestyle='--', label='D=2', color='gray')
 
 ax.set_yscale('log')
-#plt.savefig('total_error_vsp.pdf')
+#plt.savefig('figures/total_error_vsp.pdf')
 #plt.title('Deviation from exact $E_0$ curve vs. p', loc='right')
 plt.show()

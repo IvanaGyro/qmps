@@ -75,7 +75,7 @@ def test_time_evolve():
         ax[0].plot(np.array(bloch_sphere_results), c='b')
         ax[1].plot(es)
         plt.show()
-        fig.savefig('longTimeEvo2.png')
+        fig.savefig('images/longTimeEvo2.png')
         return np.array(evs), np.array(bloch_sphere_results)
 
 analytic, unitary = test_time_evolve()

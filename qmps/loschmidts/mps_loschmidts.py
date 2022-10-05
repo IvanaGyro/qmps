@@ -24,4 +24,4 @@ ls = traj.loschmidts()
 
 plt.plot(T, ls)
 plt.plot(T, loschmidts(T, g0, g1))
-plt.savefig('loschmidts.pdf')
+plt.savefig('../images/loschmidts.pdf')

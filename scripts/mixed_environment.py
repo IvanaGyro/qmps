@@ -183,14 +183,14 @@ if __name__=='__main__':
     ax.set_xlim([1-0.1*k*dt, 1])
     ax.set_ylim([1-0.1*k*dt, 1])
     ax.plot(np.linspace(0, 1, 100), np.linspace(0, 1, 100), linestyle='--', c='black')
-    plt.savefig('scatter.pdf', bbox_inches='tight')
+    plt.savefig('figures/scatter.pdf', bbox_inches='tight')
     plt.show()
 
     fig, ax = plt.subplots(1, 1, figsize=(4, 3))
     ax.scatter(list(range(len(tries))), tries, marker='+')
     ax.set_ylabel('number of repetitions')
     ax.set_xlabel('timestep')
-    plt.savefig('repetitions.pdf')
+    plt.savefig('figures/repetitions.pdf')
     plt.show()
 
     import seaborn as sns
@@ -204,6 +204,6 @@ if __name__=='__main__':
     ax.set_xlabel('$|\\eta_{\mathrm{exact}}|-|\\eta_{\mathrm{variational}}|$')
     ax.set_ylabel('frequency')
     ax.ticklabel_format(style='sci', axis='x', scilimits=(0, 0))
-    plt.savefig('error_hist.pdf')
+    plt.savefig('figures/error_hist.pdf')
     
     plt.show()

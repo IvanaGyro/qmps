@@ -403,5 +403,5 @@ if __name__=='__main__':
     plt.ylim([0, 1])
     #ax[0].set_ylabel('Expectation Values')
     ax.set_xlabel('time (t/J)')
-    plt.savefig('loschmidts.pdf', bbox_inches='tight')
+    plt.savefig('figures/loschmidts.pdf', bbox_inches='tight')
     plt.show()

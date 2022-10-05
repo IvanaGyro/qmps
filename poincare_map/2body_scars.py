@@ -291,7 +291,7 @@ def plot_map_variable(angles, show = True):
     if show:
         plt.colorbar()
         #plt.show()
-        plt.savefig("exact_1D_0th_order.png")
+        plt.savefig("images/exact_1D_0th_order.png")
     else:
         return np.column_stack(([0.9]*len(allphi1), allphi1, allphi2, allthe2))
 
