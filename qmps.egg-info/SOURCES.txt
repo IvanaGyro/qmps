@@ -1,4 +1,6 @@
+LICENSE
 README.md
+pyproject.toml
 setup.py
 qmps/__init__.py
 qmps/ansatze.py
