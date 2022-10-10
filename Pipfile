@@ -5,6 +5,9 @@ name = "pypi"
 
 [packages]
 qmps = {editable = true, path = "."}
+ipykernel = "*"
+xmps = {ref = "master", git = "https://github.com/fergusbarratt/xmps"}
+cirq = "*"
 
 [dev-packages]
 
