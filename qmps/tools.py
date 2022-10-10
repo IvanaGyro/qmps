@@ -402,7 +402,7 @@ def random_full_rank_circuit(length, depth, ψχϕs=None):
         ψ = 2*π*rand() if ψ is None else ψ
         χ = 2*π*rand() if χ is None else χ
         φ = arcsin(sqrt(rand())) if ϕ is None else ϕ
-        for g in [cirq.Rz(χ+ψ), cirq.Ry(2*φ), cirq.Rz(χ-ψ)]:
+        for g in [cirq.Rz(rads=χ+ψ), cirq.Ry(rads=2*φ), cirq.Rz(rads=χ-ψ)]:
             yield g(cirq.LineQubit(i))
     for j in range(depth):
 
