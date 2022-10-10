@@ -114,7 +114,7 @@ def get_overlap(p1, p2, gate=gate, egate=egate, initial=None):
         W = Environment(WW, 'W')
 
         qbs = cirq.LineQubit.range(6)
-        C = cirq.Circuit.from_ops([cirq.H(qbs[3]), cirq.CNOT(*qbs[3:5]),
+        C = cirq.Circuit([cirq.H(qbs[3]), cirq.CNOT(*qbs[3:5]),
                                    U(*qbs[2:4]),
                                    U(*qbs[1:3]),
                                    W(*qbs[2:4]),

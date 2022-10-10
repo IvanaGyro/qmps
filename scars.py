@@ -91,7 +91,7 @@ def scars_time_evolve_cost_function(params, current_params, ham):
     U12 = ScarGate(current_params)
     U12_= ScarGate(params)
     q = cirq.LineQubit.range(8)
-    circuit = cirq.Circuit.from_ops([
+    circuit = cirq.Circuit([
         cirq.H(q[5]),
         cirq.CNOT(q[5],q[6]),
         U12(*q[3:6]),
@@ -135,7 +135,7 @@ def scars_cost_fun_alternate(params, current_params, ham):
     U12_= Tensor(tensor_to_unitary(A12_),'U\'')
     
     q = cirq.LineQubit.range(8)
-    circuit = cirq.Circuit.from_ops([
+    circuit = cirq.Circuit([
         cirq.H(q[5]),
         cirq.CNOT(q[5],q[6]),
         U12(*q[3:6]),

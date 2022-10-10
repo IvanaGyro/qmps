@@ -102,7 +102,7 @@ def obj(p, A, WW):
                                cirq.inverse(U_)(*qbs[2:4]),
                                cirq.CNOT(*qbs[3:5]), cirq.H(qbs[3])])
     #qbs = cirq.LineQubit.range(4)
-    #normC = cirq.Circuit.from_ops([cirq.H(qbs[1]),
+    #normC = cirq.Circuit([cirq.H(qbs[1]),
     #                               cirq.CNOT(*qbs[1:3]),
     #                               L(*qbs[:2]), 
     #                               R(*qbs[-2:]),

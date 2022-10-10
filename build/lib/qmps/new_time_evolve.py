@@ -35,7 +35,7 @@ def OverlapOptimizer(Optimizer):
         W = Environment(W, 'W')
 
         qbs = cirq.LineQubit.range(6)
-        C = cirq.Circuit.from_ops([cirq.H(qbs[3]), cirq.CNOT(*qbs[3:5]),
+        C = cirq.Circuit([cirq.H(qbs[3]), cirq.CNOT(*qbs[3:5]),
                                    U(*qbs[2:4]),
                                    U(*qbs[1:3]),
                                    W(*qbs[2:4]),
@@ -99,7 +99,7 @@ def run_tests(N):
 
         qbs = cirq.LineQubit.range(4)
         for g in zip([cirq.I, cirq.X, cirq.Y, cirq.Z], [I, X, Y, Z]):
-            C = cirq.Circuit.from_ops([cirq.H(qbs[1]), cirq.CNOT(*qbs[1:3]), 
+            C = cirq.Circuit([cirq.H(qbs[1]), cirq.CNOT(*qbs[1:3]), 
                                        R(*qbs[2:]),
                                        g[0](qbs[1]),
                                        cirq.CNOT(*qbs[1:3]), cirq.H(qbs[1])])
@@ -109,7 +109,7 @@ def run_tests(N):
 
         qbs = cirq.LineQubit.range(4)
         for g in zip([cirq.I, cirq.X, cirq.Y, cirq.Z], [I, X, Y, Z]):
-            C = cirq.Circuit.from_ops([cirq.H(qbs[1]), cirq.CNOT(*qbs[1:3]),
+            C = cirq.Circuit([cirq.H(qbs[1]), cirq.CNOT(*qbs[1:3]),
                                        U(*qbs[0:2]),
                                        R(*qbs[2:]),
                                        g[0](qbs[0]),
@@ -120,7 +120,7 @@ def run_tests(N):
 
         qbs = cirq.LineQubit.range(5)
         for g in zip([cirq.I, cirq.X, cirq.Y, cirq.Z], [I, X, Y, Z]):
-            C = cirq.Circuit.from_ops([cirq.H(qbs[2]), cirq.CNOT(*qbs[2:4]),
+            C = cirq.Circuit([cirq.H(qbs[2]), cirq.CNOT(*qbs[2:4]),
                                        U(*qbs[1:3]),
                                        U(*qbs[0:2]),
                                        R(*qbs[3:]),
@@ -136,7 +136,7 @@ def run_tests(N):
 
         qbs = cirq.LineQubit.range(3)
         for g in zip([cirq.I, cirq.X, cirq.Y, cirq.Z], [I, X, Y, Z]):
-            C = cirq.Circuit.from_ops([cirq.H(qbs[1]), cirq.CNOT(*qbs[1:3]), 
+            C = cirq.Circuit([cirq.H(qbs[1]), cirq.CNOT(*qbs[1:3]), 
                                        L(*qbs[:2]),
                                        g[0](qbs[2]),
                                        cirq.CNOT(*qbs[1:3]), cirq.H(qbs[1])])
@@ -147,7 +147,7 @@ def run_tests(N):
 
         qbs = cirq.LineQubit.range(4)
         for g in zip([cirq.I, cirq.X, cirq.Y, cirq.Z], [I, X, Y, Z]):
-            C = cirq.Circuit.from_ops([cirq.H(qbs[2]), cirq.CNOT(*qbs[2:4]),
+            C = cirq.Circuit([cirq.H(qbs[2]), cirq.CNOT(*qbs[2:4]),
                                        U(*qbs[1:3]),
                                        L(*qbs[:2]),
                                        g[0](qbs[3]),
@@ -160,7 +160,7 @@ def run_tests(N):
 
         qbs = cirq.LineQubit.range(5)
         for g in zip([cirq.I, cirq.X, cirq.Y, cirq.Z], [I, X, Y, Z]):
-            C = cirq.Circuit.from_ops([cirq.H(qbs[3]), cirq.CNOT(*qbs[3:5]),
+            C = cirq.Circuit([cirq.H(qbs[3]), cirq.CNOT(*qbs[3:5]),
                                        U(*qbs[2:4]),
                                        U(*qbs[1:3]),
                                        L(*qbs[0:2]),
@@ -172,7 +172,7 @@ def run_tests(N):
             assert np.allclose(2*s.simulate(C).final_state[0]-x**2*np.trace(g[1]@l.conj()), 0, 1e-6, 1e-6)
 
         qbs = cirq.LineQubit.range(6)
-        C = cirq.Circuit.from_ops([cirq.H(qbs[3]), cirq.CNOT(*qbs[3:5]),
+        C = cirq.Circuit([cirq.H(qbs[3]), cirq.CNOT(*qbs[3:5]),
                                    U(*qbs[2:4]),
                                    U(*qbs[1:3]),
                                    L(*qbs[0:2]),
@@ -208,7 +208,7 @@ def obj(p_, A, WW):
     W = Environment(WW, 'W')
     
     qbs = cirq.LineQubit.range(5)
-    C = cirq.Circuit.from_ops([R(*qbs[3:5]),
+    C = cirq.Circuit([R(*qbs[3:5]),
                                U(*qbs[2:4]),
                                U(*qbs[1:3]),
                                W(*qbs[2:4]),
@@ -234,7 +234,7 @@ def obj_state(p_, A, WW):
     W = Environment(WW, 'W')
     
     qbs = cirq.LineQubit.range(5)
-    C = cirq.Circuit.from_ops([R(*qbs[3:5]),
+    C = cirq.Circuit([R(*qbs[3:5]),
                                U(*qbs[2:4]),
                                U(*qbs[1:3]),
                                W(*qbs[2:4]),

@@ -50,7 +50,7 @@ def two_site_cost_fun(params, U1, U2,  W):
 
     q = cirq.LineQubit.range(7)
 
-    circuit = cirq.Circuit.from_ops([
+    circuit = cirq.Circuit([
         cirq.H(q[4]),
         cirq.CNOT(q[4], q[5]),
         U1(*q[3:5]),

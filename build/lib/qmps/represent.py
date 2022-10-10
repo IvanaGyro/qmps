@@ -148,14 +148,14 @@ def trace_distance_cost_function(params, U):
 
     hadamards = [cirq.H(qubits[i]) for i in control_qubits]
 
-    circuit1 = cirq.Circuit.from_ops([state(*qubits[:state_qubits]),
+    circuit1 = cirq.Circuit([state(*qubits[:state_qubits]),
                                       environment(*qubits[state_qubits: state_qubits+env_qubits])] +
                                       cnots1 + hadamards)
 
-    circuit2 = cirq.Circuit.from_ops([state(*qubits[:state_qubits]),
+    circuit2 = cirq.Circuit([state(*qubits[:state_qubits]),
                                       state(*qubits[state_qubits:total_qubits])] + cnots2 + hadamards)
 
-    circuit3 = cirq.Circuit.from_ops([environment(*qubits[:env_qubits]),
+    circuit3 = cirq.Circuit([environment(*qubits[:env_qubits]),
                                       environment(*qubits[env_qubits: 2*env_qubits])] + cnots3 +
                                       hadamards)
 

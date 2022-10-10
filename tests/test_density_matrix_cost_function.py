@@ -36,11 +36,11 @@ def test_density_matrix_cost_funtion():
         qubits = cirq.LineQubit.range(5)
 
         # circuit with the environment found by RepresentMPS
-        optimized_circuit = cirq.Circuit.from_ops([optimized_state(*[qubits[0], qubits[1], qubits[2]]),
+        optimized_circuit = cirq.Circuit([optimized_state(*[qubits[0], qubits[1], qubits[2]]),
                                                    v_optimized(*[qubits[3], qubits[4]])])
 
         # circuit with analytic environment
-        analytic_circuit = cirq.Circuit.from_ops([analytic_state(*[qubits[0], qubits[1], qubits[2]]),
+        analytic_circuit = cirq.Circuit([analytic_state(*[qubits[0], qubits[1], qubits[2]]),
                                                   v_analytic(*[qubits[3], qubits[4]])])
 
         # circuit using analytic environment that has CNOTS and H gates to get cost function

@@ -27,11 +27,11 @@ from tqdm import tqdm
 
 def get_circuit(state, decomp=None):
     if decomp == 'Full':
-        return cirq.Circuit.from_ops(cirq.decompose(state(*cirq_qubits(state.num_qubits()))))
+        return cirq.Circuit(cirq.decompose(state(*cirq_qubits(state.num_qubits()))))
     elif decomp == 'Once':
-        return cirq.Circuit.from_ops(cirq.decompose_once(state(*cirq_qubits(state.num_qubits()))))
+        return cirq.Circuit(cirq.decompose_once(state(*cirq_qubits(state.num_qubits()))))
     else:
-        return cirq.Circuit.from_ops(state(*cirq_qubits(state.num_qubits())))
+        return cirq.Circuit(state(*cirq_qubits(state.num_qubits())))
 
 def random_unitary(*args):
     return qr(randn(*args))[0]
@@ -289,7 +289,7 @@ class GuessInitialFullParameterOptimizer(Optimizer):
         target_u = FullStateTensor(U4(params).conj())
         num_qubits = 2*self.u.num_qubits()
         qubits = cirq.LineQubit.range(num_qubits)
-        self.circuit.circuit = cirq.Circuit.from_ops([cirq.H.on(qubits[0]), cirq.H.on(qubits[1]),
+        self.circuit.circuit = cirq.Circuit([cirq.H.on(qubits[0]), cirq.H.on(qubits[1]),
                                                       cirq.CNOT.on(qubits[0], qubits[2]),
                                                       cirq.CNOT.on(qubits[1], qubits[3]),
                                                       self.u.on(*qubits[0:2]),

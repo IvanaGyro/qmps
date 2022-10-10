@@ -34,7 +34,7 @@ class TestAnsatze(unittest.TestCase):
         for exact_Vr in self.envs:
             def circ(v):
                 #Vr = lambda v: ShallowFullStateTensor(2, v)
-                c = cirq.Circuit.from_ops([cirq.TwoQubitMatrixGate(exact_Vr)(*qbs), 
+                c = cirq.Circuit([cirq.TwoQubitMatrixGate(exact_Vr)(*qbs), 
                                            cirq.inverse(Vr(v)(*qbs))])
                 sim = cirq.Simulator()
                 ψ = sim.simulate(c).final_state

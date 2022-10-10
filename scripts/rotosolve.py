@@ -28,7 +28,7 @@ def evo_state(params, which, old_params, H, dt):
     p2_, p1_ = np.split(old_params, 2)
     if which=='energy':
         qbs = cirq.LineQubit.range(4)
-        C = cirq.Circuit.from_ops([gate(p1_)(*qbs[2:]),
+        C = cirq.Circuit([gate(p1_)(*qbs[2:]),
                                    gate(p2_)(*qbs[1:3]),
                                    gate(p2_)(*qbs[:2]), 
                                    FullStateTensor(expm(-1j*H*dt/2))(*qbs[1:3]),
@@ -40,7 +40,7 @@ def evo_state(params, which, old_params, H, dt):
     elif which=='v_purity':
         qbs = [[cirq.GridQubit(y, x) for x in range(2)] 
                 for y in range(2)]
-        C = cirq.Circuit.from_ops([gate(p1)(*qbs[0][:2]),
+        C = cirq.Circuit([gate(p1)(*qbs[0][:2]),
                                    gate(p1)(*qbs[1][:2]), 
                                    cirq.SWAP(*qbs[0][:2])])
         s = cirq.Simulator()
@@ -48,7 +48,7 @@ def evo_state(params, which, old_params, H, dt):
     elif which=='u_purity':
         qbs = [[cirq.GridQubit(y, x) for x in range(3)]
                 for y in range(2)]
-        C = cirq.Circuit.from_ops([gate(p1)(*qbs[0][1:]), 
+        C = cirq.Circuit([gate(p1)(*qbs[0][1:]), 
                                    gate(p2)(*qbs[0][:2]),
                                    gate(p1)(*qbs[1][1:]), 
                                    gate(p2)(*qbs[1][:2]), 
@@ -58,7 +58,7 @@ def evo_state(params, which, old_params, H, dt):
         return s.simulate(C).final_state
     elif which=='uv_purity':
         qbs = cirq.LineQubit.range(5)
-        C = cirq.Circuit.from_ops([gate(p1)(*qbs[3:]), 
+        C = cirq.Circuit([gate(p1)(*qbs[3:]), 
                                    gate(p2)(*qbs[2:4]), 
                                    gate(p1)(*qbs[:2]), 
                                    cirq.SWAP(*qbs[:2])])
@@ -70,7 +70,7 @@ def op_state(params, which='energy'):
     p2, p1 = np.split(params, 2)
     if which=='energy':
         qbs = cirq.LineQubit.range(4)
-        C = cirq.Circuit.from_ops([gate(p1)(*qbs[2:]),
+        C = cirq.Circuit([gate(p1)(*qbs[2:]),
                                    gate(p2)(*qbs[1:3]),
                                    gate(p2)(*qbs[:2])])
         s = cirq.Simulator()
@@ -78,7 +78,7 @@ def op_state(params, which='energy'):
     elif which=='v_purity':
         qbs = [[cirq.GridQubit(y, x) for x in range(2)] 
                 for y in range(2)]
-        C = cirq.Circuit.from_ops([gate(p1)(*qbs[0][:2]),
+        C = cirq.Circuit([gate(p1)(*qbs[0][:2]),
                                    gate(p1)(*qbs[1][:2]), 
                                    cirq.SWAP(*qbs[0][:2])])
         s = cirq.Simulator()
@@ -86,7 +86,7 @@ def op_state(params, which='energy'):
     elif which=='u_purity':
         qbs = [[cirq.GridQubit(y, x) for x in range(3)]
                 for y in range(2)]
-        C = cirq.Circuit.from_ops([gate(p1)(*qbs[0][1:]), 
+        C = cirq.Circuit([gate(p1)(*qbs[0][1:]), 
                                    gate(p2)(*qbs[0][:2]),
                                    gate(p1)(*qbs[1][1:]), 
                                    gate(p2)(*qbs[1][:2]), 
@@ -96,7 +96,7 @@ def op_state(params, which='energy'):
         return s.simulate(C).final_state
     elif which=='uv_purity':
         qbs = cirq.LineQubit.range(5)
-        C = cirq.Circuit.from_ops([gate(p1)(*qbs[3:]), 
+        C = cirq.Circuit([gate(p1)(*qbs[3:]), 
                                    gate(p2)(*qbs[2:4]), 
                                    gate(p1)(*qbs[:2]), 
                                    cirq.SWAP(*qbs[:2])])
